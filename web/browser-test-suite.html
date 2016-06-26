@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+	<style>
+		body {
+			font-family : helvetica;
+		}
+		ul {
+			list-style : none;
+			padding : 0;
+		}
+		li {
+			font-weight : 700;
+			font-size : 1em;
+			display : block;
+			padding : 12px;
+			margin-bottom : 2px;
+
+		}
+		.passed {
+			background : green;
+		}
+		.failed {
+			background : red;
+		}
+		</style>
+
+</head>
+<body>
+
+<h1>Panel Beater features browser tests</h1>
+<ul id='tests'>
+	<li id='hasQuerySelector'>document.querySelector()</li>
+	<li id='hasQuerySelectorAll'>document.querySelectorAll()</li>
+	<li id='hasAddEventListener'>document.addEventListener()</li>
+	<li id='hasDataSet'>el.dataset</li>
+	<li id='hasClassList'>el.classList</li>
+	<li id='hasPageYOffset'>window.pageYOffset</li>
+	<li id='hasTransitionCSS'>css transition</li>
+	<li id='hasScrollTop'>document.body.scrollTop</li>
+	<li id='hasPromises'>Promises</li>
+	<li id='hasObjectAssign'>Object.assign</li>
+	<li id='hasArrayFrom'>Array.from</li>
+	<li id='hasFirstElementChild'>firstElementChild</li>
+	<li id='hasVHUnits'>vh units</li>
+	<li id='hasTransformsCSS'>css transforms</li>
+	</ul>
+<script src='js/polyfills.js'></script>
+<script src='js/promise-polyfill.js'></script>
+<script src='testjs.js'></script>
+</body>
+</html>

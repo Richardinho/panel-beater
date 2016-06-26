@@ -154,7 +154,7 @@
 
 		function transition(panelId, transitionType) {
 
-			var windowScroll = window.scrollY;
+			var windowScroll = window.pageYOffset;
 
 			var newPanel = panels[panelId]; //  here is the place to possibly render a new panel with new data from server.
 
