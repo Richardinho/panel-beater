@@ -26,8 +26,8 @@ elements corresponding to this selector and store them as its list of panels.
 ##### overlayId
 Type: `String`
 
-The value of the id attribute representing the element to be used for the overlay which will appear during transitions. The default
-overlay is a transparent element.
+The value of the id attribute representing the element to be used for the overlay which will appear 
+during transitions. The default overlay is a transparent element.
 
 ##### initialPanelId
 Type: `String`
