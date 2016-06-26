@@ -80,9 +80,17 @@
 		}
 	};
 
-	window.panelBeater = function (options) {
+	if (typeof define === 'function' && define.amd) {
+		define(function() {
+			return panelBeater;
+		});
+	} else if (typeof exports !== 'undefined') {
+		module.exports = panelBeater;
+	} else {
+		window.panelBeater = panelBeater;
+	}
 
-
+	function panelBeater (options) {
 
 		var panels = {};
 
