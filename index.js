@@ -1,1 +1,1 @@
-exports.module = require('dist/js/panel-beater');
+module.exports = require('./dist/js/panel-beater');
