@@ -1,28 +1,44 @@
 window.addEventListener('load', function () {
+	panelBeater({
 
-	'use strict';
+		panelSelector : '.panel',
 
-	var layerManager = new LayerManager();
+		initialPanelId : 'alpha',
 
-	toArray(document.querySelectorAll('.panel')).forEach(function (panel) {
-		layerManager.addLayer(panel.id, panel);
-	});
+		transitionSpeed : 0.4,
 
-	layerManager.setCurrentLayer('panel-1');
-	layerManager.showCurrentLayer();
+		overlaySelector : '#overlay',  // if present, a selector for overlay panel
 
-	document.body.addEventListener('click', function (event) {
-		var target = event.target;
-		if(target.tagName.toLowerCase() == 'a'
-			&& target.hasAttribute('data-internal')) {
-			event.preventDefault();
+		/*
+			panelSelector contains a list of available transitions but you can register your own
+		*/
+		customTransition : {
+			name : 'ltr',
+			//  from and to properties can be objects or functions returning an object
+			// which will contains confi properties for styles
+			from : {
+				//  properties to set on element at start
+			},
+			to : function () {
+				//  returns object to set on element at end of transition
+			}
+		},
 
-			layerManager.transitionTo(target.getAttribute('href'));
+		/*
+			lifecycle callbacks
+		*/
+		before : function () {
+			//  callback to run before transition
+		},
+
+		after : function () {
+			//  callback to run after transition has run
 		}
+
 	});
 
+//  Other configuration is done within the html code itself
 });
 
-function toArray(nodeList) {
-	return Array.prototype.slice.call(nodeList);
-}
+// todo: configure to allow panelbeater to be called as a function or as a constructor to allow object oriented
+// style too.

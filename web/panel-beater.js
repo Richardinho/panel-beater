@@ -3,7 +3,86 @@
 
 	'use strict';
 
+	var strategies = {
+		rtlexit : {
+			from : {
+				transform : 'translate(0, 0)'
+			},
+			to : {
+				webkitTransition : '1.4s ease transform',
+				transition : '1.4s ease transform',
+				transform : 'translate(100%, 0)'
+			},
+			reset : {
+				webkitTransition : 'initial',
+				transition : 'initial'
+			}
+		},
+
+		ltrentry : {
+			from : {
+				webkitTransition : 'translate(100%, 0)',
+				transform : 'translate(-100%, 0)'
+			},
+			to : {
+				webkitTransition : '1.4s ease transform',
+				transition : '1.4s ease transform',
+				transform : 'translate(0, 0)'
+			},
+			reset : {
+				webkitTransition : 'initial',
+				transition : 'initial'
+			}
+		},
+		bttentry : {
+			from : {
+				transform : 'translate(0, 100%)'
+			},
+			to : {
+				webkitTransition : '.8s ease transform',
+				transition : '.8s ease transform',
+				transform : 'translate(0, 0)'
+			},
+			reset : {
+				webkitTransition : 'initial',
+				transition : 'initial'
+			}
+		},
+		bttexit : {
+			from : {
+				transform : 'translate(0, 0)'
+			},
+			to : {
+				webkitTransition : '.6s ease transform',
+				transition : '.6s ease transform',
+				transform : 'translate(0, -100%)'
+			},
+			reset : {
+				webkitTransition : 'initial',
+				transition : 'initial'
+			}
+		},
+
+		rtlexit : {
+			from : {
+				webkitTransition : 'translate(0%, 0)',
+				transform : 'translate(0%, 0)'
+			},
+			to : {
+				webkitTransition : '1.4s ease transform',
+				transition : '1.4s ease transform',
+				transform : 'translate(-100%, 0)'
+			},
+			reset : {
+				webkitTransition : 'initial',
+				transition : 'initial'
+			}
+		}
+	};
+
 	window.panelBeater = function (options) {
+
+
 
 		var panels = {};
 
@@ -86,7 +165,7 @@
 
 			var windowScroll = window.scrollY;
 
-			var newPanel = panels[panelId];
+			var newPanel = panels[panelId]; //  here is the place to possibly render a new panel with new data from server.
 
 			document.body.scrollTop = 0;  //  reset scrolling so user always comes to top of panel
 
@@ -97,39 +176,10 @@
 			transformNewPanel(newPanel);
 
 			//  todo: will need to experiment with different phones to see what works
-			var leaveStrategy = {
-				from : {
-					transform : 'translate(0, 0)'
-				},
-				to : {
-					webkitTransition : '5.4s ease transform',
-					transition : '.4s ease transform',
-					transform : 'translate(100%, 0)'
-				},
-				reset : {
-					webkitTransition : 'initial',
-					transition : 'initial'
-				}
-			};
-			var enterStrategy = {
-				from : {
-					webkitTransition : 'translate(100%, 0)',
-					transform : 'translate(100%, 0)'
-				},
-				to : {
-					webkitTransition : '5.4s ease transform',
-					transition : '.4s ease transform',
-					transform : 'translate(0, 0)'
-				},
-				reset : {
-					webkitTransition : 'initial',
-					transition : 'initial'
-				}
-			};
 
-			var p1 = transitionPanel(currentPanel, leaveStrategy);
+			var p1 = transitionPanel(currentPanel, strategies.bttexit);
 
-			var p2 = transitionPanel(newPanel, enterStrategy);
+			var p2 = transitionPanel(newPanel, strategies.bttentry);
 
 			//  after transitions have run do some clean up
 			Promise.all([p1, p2]).then(function (panels) {

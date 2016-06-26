@@ -4,58 +4,44 @@
 	<meta charset="UTF-8">
 	<title></title>
 	<meta name='viewport' content='width=device-width,initial-scale=1'>
-	<link rel='stylesheet' href='main.css'>
 	<script src='polyfills.js'></script>
-	<script src='layer-manager.js'></script>
+	<script src='panel-beater.js'></script>
 	<script src='main.js'></script>
+	<link rel='stylesheet' href='main.css'>
+	<style>
+
+		</style>
 </head>
 <body>
+
 	<div id='overlay'></div>
-	<div id='panel-1' class='panel panel-1'>
-		<h1>panel 1</h1>
-		<a href='panel-2' data-internal=''>go to panel 2</a>
-		<p>A panel with some great content</p>
-		<p>A panel with some great content</p>
-		<p>A panel with some great content</p>
-		<p>A panel with some great content</p>
-		<p>A panel with some great content</p>
-		<p>A panel with some great content</p>
-		<p>A panel with some great content</p>
-		<p>A panel with some great content</p>
-		<p>A panel with some great content</p>
-		<p>A panel with some great content</p>
-		<a href='panel-2' data-internal=''>go to panel 2</a>
-	</div>
 
-
-	<div id='panel-2' class='panel panel-2'>
-		<h1>Hello world</h1>
-		<ul class='list'>
-			<li>blah<input type='checkbox'></li>
-			<li>blah<input type='checkbox'></li>
-			<li>blah<input type='checkbox'></li>
-			<li>blah<input type='checkbox'></li>
-			<li>blah<input type='checkbox'></li>
-			<li>blah<input type='checkbox'></li>
-			<li>blah<input type='checkbox'></li>
-			<li>blah<input type='checkbox'></li>
-			<li>blah<input type='checkbox'></li>
-			<li>blah<input type='checkbox'></li>
-			<li>blah<input type='checkbox'></li>
-			<li>blah<input type='checkbox'></li>
-			<li>blah<input type='checkbox'></li>
-
-		</ul>
-		<div class='footer'>
-			<a href='panel-1' data-internal=''>go to panel 1</a>
-			<a href='panel-3' data-internal=''>go to panel 3</a>
+	<div id='alpha' class='panel'>
+		<div class='panel-contents'>
+			<h1>Alpha</h1>
+			<a href='' data-transition='beta ltr'>beta</a>
+			<p>
+				It's the end of the world as we know it and I feel fine.
+				Last night I heard a screaming, loud voices behind the wall.
+				Another sleepless night, it wont do no good to call the police.
+				Always come late if they come at all.
+			</p>
+			<a href='' data-transition='gamma ltr'>gamma</a>
 		</div>
 	</div>
-<div id='panel-3' class='panel panel-3'>
-	<a href='panel-2' data-internal=''>go to panel 2</a>
-	<img src='landscape1.png'>
-	<a href='panel-1' data-internal=''>go to panel 1</a>
-
+	<div id='beta' class='panel'>
+		<div class='panel-contents'>
+			<h1>Beta</h1>
+			<a href='' data-transition='gamma rtl'>gamma</a>
+		</div>
+	</div>
+	<div id='gamma' class='panel'>
+		<div class='panel-contents'>
+			<h1>Gamma</h1>
+			<img src='landscape1.png'>
+			<a href='' data-transition='alpha rtl'>alpha</a>
+		</div>
+	</div>
 </div>
 </body>
 </html>
