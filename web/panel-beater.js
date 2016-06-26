@@ -94,30 +94,7 @@
 
 			overlaySelector : '#overlay',  // if present, a selector for overlay panel
 
-			/*
-				panelSelector contains a list of available transitions but you can register your own
-			*/
-			customTransition : {
-				name : 'ltr',
-				//  from and to properties can be objects or functions returning an object
-				// which will contains confi properties for styles
-				from : {
-					//  properties to set on element at start
-				},
-				to : function () {
-					//  returns object to set on element at end of transition
-				}
-			},
-			/*
-				lifecycle callbacks
-			*/
-			before : function () {
-				//  callback to run before transition
-			},
 
-			after : function () {
-				//  callback to run after transition has run
-			}
 		};
 
 		var config = Object.assign({}, defaults, options);
