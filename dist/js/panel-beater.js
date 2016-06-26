@@ -100,23 +100,29 @@
 
 			panelSelector : '.panel',
 
-			overlaySelector : '#overlay',  // if present, a selector for overlay panel
-
+			overlayId : 'overlay',  // if present, a selector for overlay panel
 
 		};
 
 		var config = Object.assign({}, defaults, options);
 
-		var overlay = document.querySelector(config.overlaySelector);
+		//  create overlay if it doesn't exist and configure.
+		var overlayEl = document.getElementById(config.overlayId);
 
-		overlay.style.display = 'none';
-		overlay.style.position = 'fixed';
-		overlay.style.left = 0;
-		overlay.style.top = 0;
-		overlay.style.bottom = 0;
-		overlay.style.right = 0;
-		overlay.style.opacity = 0;
-		overlay.style.zIndex = 100;
+		if(!overlayEl) {
+			overlayEl = document.createElement('div');
+			overlayEl.id = config.overlayId;
+			document.body.appendChild(overlayEl);
+		}
+
+		overlayEl.style.display = 'none';
+		overlayEl.style.position = 'fixed';
+		overlayEl.style.left = 0;
+		overlayEl.style.top = 0;
+		overlayEl.style.bottom = 0;
+		overlayEl.style.right = 0;
+		overlayEl.style.opacity = 0;
+		overlayEl.style.zIndex = 100;
 
 		//  get panels
 		Array.from(document.querySelectorAll(config.panelSelector)).forEach(configurePanel);

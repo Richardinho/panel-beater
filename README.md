@@ -23,10 +23,10 @@ Type: `String`
 The css selector representing a panel on the page. When the panelBeater function runs it will collect all 
 elements corresponding to this selector and store them as its list of panels.
 
-##### overlaySelector
+##### overlayId
 Type: `String`
 
-The css selector representing the element to be used for the overlay which will appear during transitions. The default
+The value of the id attribute representing the element to be used for the overlay which will appear during transitions. The default
 overlay is a transparent element.
 
 ##### initialPanelId
