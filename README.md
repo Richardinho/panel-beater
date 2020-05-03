@@ -7,7 +7,7 @@ and using CSS transitions.
 #### usage
 Include script in html page
 ```html
-<script src="panel-beater.js"></script>
+<script type="module" src="main.mjs"></script>
 ```
   
 Call panelBeater function passing in options object as argument
@@ -54,11 +54,3 @@ of this attribute corresponds to the id of the panel to which we wish to transit
 </div>
 ```
 
-#### polyfills
-
-Some more modern JS functions such as Object.assign() are used in our code. For browsers not supporting
-these a polyfill is provided which must be loaded into the page if desired. Any other appropriate polyfill
-could be used instead.
-```html
-<script src="polyfills.js"></script>
-```
