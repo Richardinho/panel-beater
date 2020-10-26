@@ -1,5 +1,5 @@
 export function transitionPanel(panel, strategy){
-  return new Promise(function(resolve){
+  return new Promise((resolve)=> {
     /*
      *  apply from styles
      */
@@ -12,8 +12,7 @@ export function transitionPanel(panel, strategy){
 
     document.body.clientHeight; 
 
-    panel.addEventListener('transitionend', () => {
-
+    panel.addEventListener("transitionend", () => {
       /*
        *  apply end styles
        */
@@ -25,7 +24,6 @@ export function transitionPanel(panel, strategy){
        */
 
       resolve(panel);
-
     }, { once: true });
 
     /*

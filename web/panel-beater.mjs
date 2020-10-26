@@ -1,39 +1,39 @@
-import { strategies } from './strategies.mjs';
 import {
-  fixPanel,
   fixBody,
+  fixPanel,
   unFixBody,
   unTransformCurrentPanel,
-  unTransformNewPanel } from './utils.mjs'; 
-import { transitionPanel } from './transition-panel.mjs';
+  unTransformNewPanel
+} from "./utils.mjs"; 
+import { strategies } from "./strategies.mjs";
+import { transitionPanel } from "./transition-panel.mjs";
 
 const defaults = {
-  panelSelector: '.panel',
-  overlayId: 'overlay',  // if present, a selector for overlay panel
+  panelSelector: ".panel",
+  overlayId: "overlay"  // if present, a selector for overlay panel
 };
 
 export function panelBeater (options) {
-
   const panels = {};
 
   let currentPanel;
 
   const config = {
     ...defaults,
-    ...options,
+    ...options
   };
 
   //  create overlay if it doesn't exist and configure.
   let overlayEl = document.getElementById(config.overlayId);
 
   if (!overlayEl) {
-    overlayEl = document.createElement('div');
+    overlayEl = document.createElement("div");
     overlayEl.id = config.overlayId;
     document.body.appendChild(overlayEl);
   }
 
-  overlayEl.style.display = 'none';
-  overlayEl.style.position = 'fixed';
+  overlayEl.style.display = "none";
+  overlayEl.style.position = "fixed";
   overlayEl.style.left = 0;
   overlayEl.style.top = 0;
   overlayEl.style.bottom = 0;
@@ -55,7 +55,7 @@ export function panelBeater (options) {
 
     if (panelId === config.initialPanelId) {
       currentPanel = panel;
-      panel.style.display = 'block'; // to make panel visible
+      panel.style.display = "block"; // to make panel visible
       panel.style.zIndex = 2;
     }
 
@@ -66,23 +66,21 @@ export function panelBeater (options) {
    * attach click handler to all link elements with data-transition attribute
    */
 
-  document.querySelectorAll('[data-transition]').forEach((el) => {
-    el.addEventListener('click', clickHandler);
+  document.querySelectorAll("[data-transition]").forEach((el) => {
+    el.addEventListener("click", clickHandler);
   });
 
   function clickHandler(event) {
     event.preventDefault();
 
     const target = event.target;
-    const attributes = target.getAttribute('data-transition').split(/\s/);
+    const attributes = target.getAttribute("data-transition").split(/\s/);
     const newPanelId = attributes[0];
-    const transitionType = attributes[1];
 
-    transition(newPanelId, transitionType);
+    transition(newPanelId);
   }
 
-  function transition(panelId, transitionType) {
-
+  function transition(panelId) {
     const windowScroll = window.pageYOffset;
 
     const newPanel = panels[panelId]; //  here is the place to possibly render a new panel with new data from server.
@@ -104,7 +102,7 @@ export function panelBeater (options) {
     const p2 = transitionPanel(newPanel, strategies.bttentry);
 
     //  after transitions have run do some clean up
-    Promise.all([p1, p2]).then(function (panels) {
+    Promise.all([p1, p2]).then((panels) => {
       const newPanel = panels[1];
       hideOverlay();
 
@@ -122,20 +120,20 @@ export function panelBeater (options) {
   }
 
   function showOverlay() {
-    overlay.style.display = 'block';
+    overlayEl.style.display = "block";
   }
 
   function hideOverlay() {
-    overlay.style.display = 'none';
+    overlayEl.style.display = "none";
   }
 
   function fixCurrentPanel(scroll) {
     fixPanel(currentPanel);
-    currentPanel.firstElementChild.style.top = -scroll + 'px';
+    currentPanel.firstElementChild.style.top = -scroll + "px";
   }
 
   function fixNewPanel(newPanel) {
-    newPanel.style.display = 'block';
+    newPanel.style.display = "block";
     fixPanel(currentPanel);
   }
 }
