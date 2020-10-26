@@ -1,5 +1,6 @@
 const EXIT_DURATION = 1;
 const ENTRY_DURATION = EXIT_DURATION * 1;
+const TIMING_FUNCTION = 'linear';
 
 export const strategies = {
 
@@ -12,7 +13,7 @@ export const strategies = {
       transform : 'translate(0, 0)',
     },
     to : {
-      transition : `${EXIT_DURATION}s ease transform`,
+      transition : `${EXIT_DURATION}s ${TIMING_FUNCTION} transform`,
       transform : 'translate(100%, 0)',
     },
     reset : {
@@ -29,7 +30,7 @@ export const strategies = {
       transform : 'translate(-100%, 0)',
     },
     to : {
-      transition : `${ENTRY_DURATION}s ease transform`,
+      transition : `${ENTRY_DURATION}s ${TIMING_FUNCTION} transform`,
       transform : 'translate(0, 0)',
     },
     reset : {
@@ -46,7 +47,7 @@ export const strategies = {
       transform : 'translate(0, 100%)'
     },
     to : {
-      transition: `${ENTRY_DURATION}s ease transform`,
+      transition: `${ENTRY_DURATION}s ${TIMING_FUNCTION} transform`,
       transform : 'translate(0, 0)'
     },
     reset : {
@@ -63,7 +64,7 @@ export const strategies = {
       transform : 'translate(0, 0)'
     },
     to : {
-      transition: `${EXIT_DURATION}s ease transform`,
+      transition: `${EXIT_DURATION}s ${TIMING_FUNCTION} transform`,
       transform : 'translate(0, -100%)'
     },
     reset : {
@@ -80,7 +81,7 @@ export const strategies = {
       transform : 'translate(0%, 0)'
     },
     to : {
-      transition : `${EXIT_DURATION}s ease transform`,
+      transition : `${EXIT_DURATION}s ${TIMING_FUNCTION} transform`,
       transform : 'translate(-100%, 0)'
     },
     reset : {

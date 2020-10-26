@@ -17,9 +17,11 @@ body {
 .panel {
 	display : none;
 	background : white;
+  border: solid 4px green;
 	overflow : hidden;
 
 }
+
 .panel-contents {
 	padding : 12px;
 	position : relative;
@@ -33,6 +35,7 @@ body {
 h1 {
 	text-align : center;
 }
+
 img {
 	width : 100%;
 }

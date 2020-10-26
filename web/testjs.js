@@ -78,6 +78,5 @@ for(var i=0; i < tests.length; i++) {
 	var result = testFunc();
 
 	test.className = result ? 'passed' : 'failed';
-
 }
 

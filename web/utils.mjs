@@ -16,7 +16,7 @@ export function unTransformCurrentPanel(currentPanel) {
 }
 
 export function fixBody() {
-  //document.body.style.position = 'fixed';
+  document.body.style.position = 'fixed';
   document.body.style.overflow = 'hidden';
   document.body.style.left = 0;
   document.body.style.right = 0;
@@ -30,7 +30,7 @@ export function unFixBody() {
 }
 
 export function fixPanel(panel) {
-  panel.style.position = 'absolute';
+  panel.style.position = 'fixed';
   panel.style.overflow = 'hidden';
   panel.style.left = 0;
   panel.style.right = 0;

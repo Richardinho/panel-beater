@@ -1,4 +1,3 @@
-
 export function transitionPanel(panel, strategy){
   return new Promise(function(resolve){
     /*

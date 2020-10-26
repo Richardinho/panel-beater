@@ -1,4 +1,4 @@
-import { panelBeater } from './js/panel-beater.mjs';
+import { panelBeater } from './panel-beater.mjs';
 
 window.addEventListener('load', function () {
 	panelBeater({
