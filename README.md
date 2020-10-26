@@ -3,6 +3,8 @@
 A module which enables sliding transition between panels in a browser viewport. Written in Vanilla Javascript
 and using CSS transitions.
 
+Demonstration [here]()
+
   
 #### usage
 Include script in html page
