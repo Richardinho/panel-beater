@@ -5,6 +5,9 @@ and using CSS transitions.
 
 Demonstration: https://richardinho.github.io/panel-beater/
 
+[![Open in Codeflow](https://developer.stackblitz.com/img/open_in_codeflow.svg)](https:///pr.new/github.com/Richardinho/panel-beater)
+
+
   
 #### usage
 Include script in html page
