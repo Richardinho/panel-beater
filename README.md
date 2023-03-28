@@ -9,7 +9,7 @@ Demonstration: https://richardinho.github.io/panel-beater/
 
 
   
-#### usages 
+#### usage
 Include script in html page
 ```html
 <script type="module" src="main.mjs"></script>
